@@ -1,0 +1,26 @@
+public class Recursion {
+    // Problem Statement
+    // here we take a string and print its number indivisualy
+    // ex-arr={1,2,3,4} so the output will be- 1 2 3 4
+    public static void print(int arr[], int sIndx) {
+        // base condition
+        if (sIndx >= arr.length) {
+            // stop
+            return;
+        }
+
+        // logic
+        System.out.println(arr[sIndx]);
+
+        // recursive case
+
+        print(arr, sIndx + 1);
+    }
+
+    public static void main(String[] args) {
+        int arr[] = { 1, 2, 3, 4 };
+        print(arr, 0);
+
+    }
+
+}
