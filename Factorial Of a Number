@@ -1,0 +1,17 @@
+public class Factorial {
+    public static int Fact(int n) {
+        // base condition
+        if (n <= 1) {
+            return 1;
+        }
+        // logic and recursive call
+        return n * Fact(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        System.out.println("Factorial of the " + n + " is :" + Fact(4));
+
+    }
+
+}
