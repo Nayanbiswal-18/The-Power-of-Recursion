@@ -1,0 +1,36 @@
+public class Minimumjump {
+    public static int MinJumps(int arr[], int start, int end) {
+        // base condituon
+        if (start == end) {
+            return 0;
+        }
+
+        if (arr[start] == 0) {
+
+            // not possible to reach the end point,infanite jump
+            return Integer.MAX_VALUE;
+        }
+        // here i check the all posibility off jumpes and from that calculate the
+        // minimum jump for reaching from start to end
+        int Minjump = Integer.MAX_VALUE;
+        for (int i = start + 1; i <= start + arr[start] && i <= end; i++) {
+
+            int jumps = MinJumps(arr, i, end);
+
+            if (jumps != Integer.MAX_VALUE && jumps + 1 < Minjump) {
+                Minjump = jumps + 1;
+
+            }
+        }
+        return Minjump;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = { 1, 3, 5, 8, 4, 2, 6, 7, 6, 8, 9 };
+        int n = arr.length;
+        // we search from starting index to ending index from given array
+        System.out.println("The Minimum jumps required to reach Start to end " + MinJumps(arr, 0, n - 1));
+
+    }
+
+}
