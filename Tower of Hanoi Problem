@@ -1,0 +1,28 @@
+// Program for Tower of Hanoi
+// Tower of Hanoi is a mathematical puzzle where we have three places (Source, Destination, and Auxulary/helper) and n coines. 
+//Initially, all the coines are arrenged in decreasing value of diameter i.e., the smallest coin is placed on the top and they are on Source. 
+//The objective of the puzzle is to move the entire coines to Destination using the help of Auxulary, obeying the following simple rules: 
+// Only one coin  can be moved at a time.
+// Each move consists of taking the upper coin from one of the place and placing it on top of another place i.e. a coin can only be moved if it is the uppermost coin on a place.
+// No coin may be placed on top of a smallest coin.
+
+public class Test {
+    public static int moves(int n, char S, char D, char A) {
+        // base condition
+        if (n == 0 || n == 1) {
+            return n;
+
+        }
+        // logic terminate condition
+        int step1 = moves(n - 1, S, A, D);// here we move the n-1 coin S to A using D
+        int step2 = 1;// move the last coin of S to D
+        int step3 = moves(n - 1, A, D, S);// moves n-1 coines from A to D
+        return step1 + step2 + step3;
+    }
+
+    public static void main(String[] args) {
+        int coin = 8;
+        System.out.println("No of stepes required to move the " + coin + " coins :" + moves(coin, 'S', 'D', 'A'));
+
+    }
+}
